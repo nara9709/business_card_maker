@@ -1,17 +1,33 @@
 import styles from './login.module.css';
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
+import { useHistory } from 'react-router-dom';
 
 const Login = ({ authService }) => {
-  const onLogin = (e) => {
-    authService.login(e.currentTarget.textContent).then(console.log);
+  const history = useHistory();
+  const goToMaker = (userId) => {
+    history.push({
+      pathname: '/maker',
+      state: { id: userId },
+    });
   };
+
+  const onLogin = (e) => {
+    authService
+      .login(e.currentTarget.textContent)
+      .then((data) => goToMaker(data.user.uid));
+  };
+
+  useEffect(() => {
+    authService.onAuthChange((user) => {
+      user && goToMaker(user.uid);
+    });
+  });
+
   return (
     <section className={styles.login}>
       <Header></Header>
-
       <section>
         <h1 className={styles.title}>Login</h1>
         <ul className={styles.list}>
@@ -27,6 +43,7 @@ const Login = ({ authService }) => {
           </li>
         </ul>
       </section>
+
       <Footer></Footer>
     </section>
   );
