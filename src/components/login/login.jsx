@@ -1,50 +1,49 @@
-import styles from './login.module.css';
 import React, { useEffect } from 'react';
-import Header from '../Header/header';
-import Footer from '../Footer/footer';
 import { useHistory } from 'react-router-dom';
+import Footer from '../footer/footer';
+import Header from '../header/header';
+import styles from './login.module.css';
 
 const Login = ({ authService }) => {
   const history = useHistory();
-  const goToMaker = (userId) => {
+  const goToMaker = userId => {
     history.push({
       pathname: '/maker',
       state: { id: userId },
     });
   };
 
-  const onLogin = (e) => {
-    authService
-      .login(e.currentTarget.textContent)
-      .then((data) => goToMaker(data.user.uid));
+  const onLogin = event => {
+    authService //
+      .login(event.currentTarget.textContent)
+      .then(data => goToMaker(data.user.uid));
   };
 
   useEffect(() => {
-    authService.onAuthChange((user) => {
-      user && goToMaker(user.uid);
+    authService.onAuthChange(user => {
+      user && goToMaker(user.id);
     });
   });
 
   return (
     <section className={styles.login}>
-      <Header></Header>
+      <Header />
       <section>
-        <h1 className={styles.title}>Login</h1>
+        <h1>Login</h1>
         <ul className={styles.list}>
-          <li>
+          <li className={styles.item}>
             <button className={styles.button} onClick={onLogin}>
               Google
             </button>
           </li>
-          <li>
+          <li className={styles.item}>
             <button className={styles.button} onClick={onLogin}>
               Github
             </button>
           </li>
         </ul>
       </section>
-
-      <Footer></Footer>
+      <Footer />
     </section>
   );
 };

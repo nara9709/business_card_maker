@@ -1,10 +1,9 @@
+import React from 'react';
 import styles from './footer.module.css';
 
-import React from 'react';
-
-const Footer = (props) => (
+const Footer = () => (
   <footer className={styles.footer}>
-    <p className={styles.title}>@Nara lee</p>
+    <p className={styles.title}>Code your dream</p>
   </footer>
 );
 
