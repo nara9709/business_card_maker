@@ -6,14 +6,14 @@ import Editor from '../editor/editor';
 import Preview from '../preview/preview';
 import styles from './maker.module.css';
 
-const Maker = ({ authService }) => {
+const Maker = ({ authService, cards }) => {
   const history = useHistory();
   const onLogout = () => {
     authService.logout();
   };
 
   useEffect(() => {
-    authService.onAuthChange(user => {
+    authService.onAuthChange((user) => {
       if (!user) {
         history.push('/');
       }
@@ -23,8 +23,8 @@ const Maker = ({ authService }) => {
     <section className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Editor />
-        <Preview />
+        <Editor cards={cards} />
+        <Preview cards={cards} />
       </div>
       <Footer />
     </section>
