@@ -1,13 +1,98 @@
-@value makerGreen from '../../common/colors.css';
+@value makerGreen,makerGrey,makerWhite,makerLightPink,makerLightGrey from '../../common/colors.css';
+
+input {
+  padding: 10px;
+}
+
+input:focus {
+  outline: none;
+}
 
 .editor {
   flex-basis: 50%;
-  background-color: wheat;
+  background-color: makerWhite;
+  border-right: 1px solid makerLightGrey;
 }
 
 .title {
   width: 100%;
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   color: makerGreen;
+}
+
+.inputContainer {
+  width: 95%;
+  height: 150px;
+  border: 1px solid makerGrey;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.firstLineContainer {
+  width: 100%;
+  height: 20%;
+  border-bottom: 1px solid makerGrey;
+}
+
+.firstLineInput {
+  width: 33%;
+  height: 100%;
+  border: none;
+  border-right: 1px solid makerGrey;
+  border-bottom: 1px solid makerGrey;
+}
+
+.section {
+  width: 33%;
+  height: 100%;
+  border: none;
+}
+
+.section:focus {
+  outline: none;
+}
+
+.secondLineContainer {
+  width: 100%;
+  height: 20%;
+  border-bottom: 1px solid makerGrey;
+}
+
+.secondLineInput {
+  width: 50%;
+  height: 100%;
+  border: none;
+  border-right: 1px solid makerGrey;
+}
+
+.textArea {
+  width: 100%;
+  border: none;
+  height: 30%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.textArea:focus {
+  outline: none;
+}
+
+.imageBtn,
+.deleteBtn {
+  width: 50%;
+  height: 28%;
+  border: none;
+  border-top: 1px solid makerGrey;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.imageBtn {
+  border-right: 1px solid makerGrey;
+  background-color: makerLightPink;
+}
+
+.deleteBtn {
+  background-color: makerGreen;
+  color: makerWhite;
 }
