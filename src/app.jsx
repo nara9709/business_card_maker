@@ -5,16 +5,6 @@ import Login from './components/login/login';
 import Maker from './components/maker/maker';
 
 function App({ authService }) {
-  const [cards, setCards] = useState({
-    firstName: ['Nara', 'Noah', 'Jiyeon'],
-    companyName: ['Google', 'Katsu express', 'Seoul pharmacy'],
-    position: ['Web developer', 'Line cook', 'Pharmacist'],
-    email: ['worldkr19@gmail.com', 'cow4635@gmail.com', 'tjdnfwldus@naver.com'],
-    comment: ['I love coding', 'I love Nara!', 'I love mando!'],
-  });
-
-  console.log(cards);
-
   return (
     <div className={styles.app}>
       <BrowserRouter>
@@ -23,7 +13,7 @@ function App({ authService }) {
             <Login authService={authService} />
           </Route>
           <Route path="/maker">
-            <Maker authService={authService} cards={cards} />
+            <Maker authService={authService} />
           </Route>
         </Switch>
       </BrowserRouter>
