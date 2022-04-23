@@ -1,9 +1,6 @@
 @value makerGreen,makerWhite,makerBlack from '../../common/colors.css';
 
 .preview {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   flex-basis: 50%;
   background-color: makerWhite;
 }
@@ -15,42 +12,11 @@
   color: makerGreen;
 }
 
-.cardContainer {
+.cards {
+  width: 100%;
+  height: 100%;
+  padding: 0.5em 2em;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: makerBlack;
-  width: 80%;
-  height: 210px;
-  border-radius: 25px;
-  margin: 20px;
-}
-
-.descriptionContainer {
-  width: 60%;
-  height: 80%;
-}
-
-.image {
-  width: 130px;
-  margin-right: 30px;
-}
-
-.name {
-  color: white;
-  margin-bottom: 0;
-}
-
-.cardDescription {
-  color: white;
-  font-size: 13px;
-  margin-top: 0;
-  margin-bottom: 7px;
-}
-
-.line {
-  width: 90%;
-  height: 1px;
-  background-color: wheat;
-  margin-bottom: 10px;
 }
