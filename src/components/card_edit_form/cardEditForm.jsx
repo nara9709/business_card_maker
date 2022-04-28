@@ -4,17 +4,8 @@ import ImageFileInput from '../image_file_input/imageFileInput';
 import styles from './cardEditForm.module.css';
 
 const CardEditForm = ({ card }) => {
-  const {
-    name,
-    company,
-    title,
-    email,
-    comment,
-    theme,
-    fileName,
-    fileURL,
-    position,
-  } = card;
+  const { name, company, email, comment, theme, fileName, fileURL, position } =
+    card;
 
   const onSubmit = () => {};
 
@@ -32,7 +23,12 @@ const CardEditForm = ({ card }) => {
         <option value="dark">Dark</option>
         <option value="colorful">Colorful</option>
       </select>
-      <input className={styles.input} type="text" name="title" value={title} />
+      <input
+        className={styles.input}
+        type="text"
+        name="title"
+        value={position}
+      />
       <input className={styles.input} type="text" name="email" value={email} />
       <textarea
         className={styles.textarea}

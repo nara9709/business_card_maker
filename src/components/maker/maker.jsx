@@ -17,7 +17,7 @@ const Maker = ({ authService }) => {
       comment: 'I love coding',
       fileName: 'nara',
       fileURL: null,
-      theme: 'dark',
+      theme: 'Dark',
     },
     {
       id: '2',
@@ -28,7 +28,7 @@ const Maker = ({ authService }) => {
       comment: 'I love Nara!',
       fileName: 'nara',
       fileURL: 'nara.png',
-      theme: 'colorful',
+      theme: 'Colorful',
     },
     {
       id: '3',
@@ -39,7 +39,7 @@ const Maker = ({ authService }) => {
       comment: 'I love mandu!',
       fileName: 'nara',
       fileURL: null,
-      theme: 'light',
+      theme: 'Light',
     },
   ]);
   const history = useHistory();
@@ -54,11 +54,17 @@ const Maker = ({ authService }) => {
       }
     });
   });
+
+  const addCard = (card) => {
+    const updated = [...cards, card];
+    setCards(updated);
+  };
+
   return (
     <section className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Editor cards={cards} />
+        <Editor cards={cards} addCard={addCard} />
         <Preview cards={cards} />
       </div>
       <Footer />
